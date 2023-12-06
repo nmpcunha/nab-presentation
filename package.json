@@ -6,6 +6,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "cz": "cz",
     "lint": "eslint --ext .ts,.html . --ignore-path .gitignore && prettier \"**/*.ts\" --check --ignore-path .gitignore",
     "format": "eslint --ext .ts,.html . --fix --ignore-path .gitignore && prettier \"**/*.ts\" --write --ignore-path .gitignore",
     "test": "tsc && wtr --coverage",
@@ -36,7 +37,9 @@
     "@web/rollup-plugin-import-meta-assets": "^1.0.7",
     "@web/test-runner": "^0.14.0",
     "babel-plugin-template-html-minifier": "^4.1.0",
+    "commitizen": "^4.3.0",
     "concurrently": "^5.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "deepmerge": "^4.2.2",
     "eslint": "^8.31.0",
     "eslint-config-prettier": "^8.3.0",
@@ -89,5 +92,10 @@
       "prettier --write"
     ]
   },
-  "customElements": "custom-elements.json"
+  "customElements": "custom-elements.json",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
