@@ -13,7 +13,7 @@ describe('AppSample', () => {
   it('renders a h1', () => {
     const h1 = element.shadowRoot!.querySelector('h1')!;
     expect(h1).to.exist;
-    expect(h1.textContent).to.equal('My app');
+    expect(h1.textContent).to.equal('"It is not all about code"');
   });
 
   it('passes the a11y audit', async () => {

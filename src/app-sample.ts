@@ -5,7 +5,7 @@ const logo = new URL('../../assets/open-wc-logo.svg', import.meta.url).href;
 
 @customElement('app-sample')
 export class AppSample extends LitElement {
-  @property({ type: String }) header = 'My app';
+  @property({ type: String }) header = '"It is not all about code"';
 
   static styles = css`
     :host {
@@ -57,14 +57,14 @@ export class AppSample extends LitElement {
         <div class="logo"><img alt="open-wc logo" src=${logo} /></div>
         <h1>${this.header}</h1>
 
-        <p>Edit <code>src/AppSample.ts</code> and save to reload.</p>
+        <p>🏗️ Application is still under development 🚧</p>
         <a
           class="app-link"
           href="https://open-wc.org/guides/developing-components/code-examples"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Code examples
+          Lit Code examples
         </a>
       </main>
 
