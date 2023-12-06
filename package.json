@@ -8,8 +8,15 @@
   "scripts": {
     "prepare": "husky install",
     "cz": "cz",
-    "lint": "eslint --ext .ts,.js,.cjs,.html . --ignore-path .gitignore && prettier \"**/*.{html,js,cjs,json,ts}\" --check --ignore-path .gitignore",
-    "format": "eslint --ext .ts,.js,.cjs,.html . --fix --ignore-path .gitignore && prettier \"**/*.{html,js,cjs,json,ts}\" --write --ignore-path .gitignore",
+    "lint": "npm run lint:eslint && npm run lint:lit-analyzer && npm run lint:prettier && npm run lint:stylelint",
+    "lint:eslint": "eslint --ext .ts,.js,.cjs,.html . --ignore-path .gitignore",
+    "lint:lit-analyzer": "lit-analyzer \"src/*.{js,ts,html}\" --strict",
+    "lint:prettier": "prettier \"**/*.{html,js,cjs,json,ts}\" --check --ignore-path .gitignore",
+    "lint:stylelint": "stylelint \"**/*.{js,ts,html}\" --ignore-path .gitignore",
+    "format": "npm run format:eslint && npm run format:prettier && npm run format:stylelint",
+    "format:eslint": "eslint --ext .ts,.js,.cjs,.html . --fix --ignore-path .gitignore",
+    "format:prettier": "prettier \"**/*.{html,js,cjs,json,ts}\" --write --ignore-path .gitignore",
+    "format:stylelint": "stylelint \"**/*.{js,ts,html}\" --fix --ignore-path .gitignore",
     "test": "tsc && wtr --coverage",
     "test:watch": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wtr --watch\"",
     "storybook": "tsc && npm run analyze -- --exclude dist && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds -c .storybook/server.mjs\"",
@@ -48,18 +55,23 @@
     "eslint-config-prettier": "^8.3.0",
     "husky": "^8.0.0",
     "lint-staged": "^10.5.4",
+    "lit-analyzer": "^2.0.1",
+    "postcss-lit": "^1.1.0",
     "prettier": "^2.4.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.60.0",
     "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-workbox": "^6.2.0",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard": "^34.0.0",
     "tslib": "^2.3.1",
     "typescript": "^4.5.2"
   },
   "lint-staged": {
     "*.{cjs,js,ts}": [
       "eslint --fix",
-      "prettier --write"
+      "prettier --write",
+      "stylelint --fix"
     ],
     "*.{html,json,md}": [
       "prettier --write"
