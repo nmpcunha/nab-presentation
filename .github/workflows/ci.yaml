@@ -1,0 +1,29 @@
+name: QA Checks
+
+run-name: ${{ github.actor }} is performing QA Checks 🚀
+
+on: [push, pull_request]
+
+jobs:
+  checks:
+    runs-on: ['atc-ubuntu-latest']
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/iron'
+          cache: npm
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Audit Runtime Dependencies
+        run: npm run audit
+
+      - name: Linting
+        run: npm run lint
+
+      - name: Run Unit Tests
+        run: npm run test
