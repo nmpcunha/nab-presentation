@@ -1,12 +1,4 @@
-<<<<<<< Updated upstream
-<p align="center">
-  <img width="200" src="https://open-wc.org/hero.png"></img>
-</p>
-
-## Open-wc Starter App
-=======
 # App Sample - Web Components
->>>>>>> Stashed changes
 
 [![BMW](https://aleen42.github.io/badges/src/bmw.svg)](https://bmw.com)
 
@@ -14,37 +6,31 @@
 [![Node.js Version](https://img.shields.io/node/v/npm.svg?style=flat)](https://nodejs.org/en/download/releases/)
 
 [![Built with open-wc recommendations](https://img.shields.io/badge/built%20with-open--wc-blue.svg)](https://github.com/open-wc)
-<<<<<<< Updated upstream
-=======
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 [![QA Checks](https://github.com/nmpcunha/music-player/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/nmpcunha/music-player/actions/workflows/ci.yaml)
->>>>>>> Stashed changes
 
-## Quickstart
+This is a simple sample to help materializing some of the concepts and "best practices" which were presented during "BMW Group Global Frontend Developer Comunity Event". The context was the presentation/talk "It is not all about code".
 
-To get started:
+## Setup 👨‍💻
 
-```sh
-npm init @open-wc
-# requires node 10 & npm 6 or higher
+Install dependencies:
+
+```bash
+npm ci
 ```
 
-## Scripts
+## Build 🔨
 
-- `start` runs your app for development, reloading on file changes
-- `start:build` runs your app after it has been built using the build command
-- `build` builds your app and outputs it in your `dist` directory
-- `test` runs your test suite with Web Test Runner
-- `lint` runs the linter for your project
+This project uses the TypeScript compiler to produce JavaScript that runs in modern browsers.
 
-## Tooling configs
+To build the JavaScript version of your component:
 
-For most of the tools, the configuration is in the `package.json` to reduce the amount of files in your project.
+```bash
+npm run build
+```
 
-<<<<<<< Updated upstream
 If you customize the configuration a lot, you can consider moving them to individual files.
-=======
 Both the TypeScript compiler and lit-analyzer are configured to be very strict. You may want to change `tsconfig.json` to make them less strict.
 
 ## Testing 🧪
@@ -143,4 +129,3 @@ To serve your code against Lit's production mode, use `npm run start:build`.
 ## Tooling configs ⚙️
 
 For most of the tools, the configuration reside in its specific file (e.g. `commitlint.config.cjs`, `.eslintrc.json`, `.prettierrc.json`, `.stylelintrc.json`, `tsconfig.json`) in order to avoid a very big `package.json` containing all the configurations.
->>>>>>> Stashed changes
