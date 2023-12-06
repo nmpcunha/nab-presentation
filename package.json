@@ -8,8 +8,8 @@
   "scripts": {
     "prepare": "husky install",
     "cz": "cz",
-    "lint": "eslint --ext .ts,.html . --ignore-path .gitignore && prettier \"**/*.ts\" --check --ignore-path .gitignore",
-    "format": "eslint --ext .ts,.html . --fix --ignore-path .gitignore && prettier \"**/*.ts\" --write --ignore-path .gitignore",
+    "lint": "eslint --ext .ts,.js,.cjs,.html . --ignore-path .gitignore && prettier \"**/*.{html,js,cjs,json,ts}\" --check --ignore-path .gitignore",
+    "format": "eslint --ext .ts,.js,.cjs,.html . --fix --ignore-path .gitignore && prettier \"**/*.{html,js,cjs,json,ts}\" --write --ignore-path .gitignore",
     "test": "tsc && wtr --coverage",
     "test:watch": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wtr --watch\"",
     "storybook": "tsc && npm run analyze -- --exclude dist && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds -c .storybook/server.mjs\"",
@@ -56,45 +56,12 @@
     "tslib": "^2.3.1",
     "typescript": "^4.5.2"
   },
-  "eslintConfig": {
-    "parser": "@typescript-eslint/parser",
-    "extends": [
-      "@open-wc",
-      "prettier"
-    ],
-    "plugins": [
-      "@typescript-eslint"
-    ],
-    "rules": {
-      "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": [
-        "error"
-      ],
-      "import/no-unresolved": "off",
-      "import/extensions": [
-        "error",
-        "always",
-        {
-          "ignorePackages": true
-        }
-      ]
-    }
-  },
-  "prettier": {
-    "singleQuote": true,
-    "arrowParens": "avoid"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
-    "*.ts": [
+    "*.{cjs,js,ts}": [
       "eslint --fix",
       "prettier --write"
     ],
-    "*.md": [
+    "*.{html,json,md}": [
       "prettier --write"
     ]
   },
